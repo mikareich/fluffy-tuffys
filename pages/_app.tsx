@@ -2,8 +2,8 @@ import '../styles/index.css'
 
 import React from 'react'
 import type { AppProps } from 'next/app'
-import NavBar from '../components/NavBar'
-import Logo from '../components/NavBar/Logo'
+import AppBar from '../components/AppBar'
+import Logo from '../components/AppBar/Logo'
 import Gallery from '../components/Gallery'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -25,18 +25,29 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <div className="w-screen h-screen bg-gray-50">
-      <NavBar.Container>
+      {/* NavBar */}
+      <AppBar.Container type="navbar">
         <Logo />
-        <NavBar.MenuItem href="/">Spieler</NavBar.MenuItem>
-        <NavBar.MenuItem href="/">Tasks</NavBar.MenuItem>
-        <NavBar.MenuItem href="/">Waypoints</NavBar.MenuItem>
-        <NavBar.MenuItem href="/">
+        <AppBar.MenuItem href="/">Spieler</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">Tasks</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">Waypoints</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">
           <div className="w-3 h-3 rounded-full bg-green-500 mr-2" />
           Serverstatus
-        </NavBar.MenuItem>
-      </NavBar.Container>
+        </AppBar.MenuItem>
+      </AppBar.Container>
       <Gallery paths={imagePaths} />
       <Component {...pageProps} />
+      {/* Footer */}
+      <AppBar.Container type="footer">
+        <AppBar.MenuItem href="/">Spieler</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">Tasks</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">Waypoints</AppBar.MenuItem>
+        <AppBar.MenuItem href="/">
+          <div className="w-3 h-3 rounded-full bg-green-500 mr-2" />
+          Serverstatus
+        </AppBar.MenuItem>
+      </AppBar.Container>
     </div>
   )
 }

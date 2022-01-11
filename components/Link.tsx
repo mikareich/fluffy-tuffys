@@ -1,16 +1,16 @@
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 import NextLink from 'next/link'
 
-interface LinkProps {
-  href: string
-}
-
-function Link({ href, children }: PropsWithChildren<LinkProps>) {
-  return (
-    <NextLink href={href} passHref>
-      <a href="dummy">{children}</a>
-    </NextLink>
-  )
-}
+const Link = ({
+  children,
+  href,
+  ...props
+}: React.HTMLProps<HTMLAnchorElement>) => (
+  <NextLink href={href || '#'} passHref>
+    <a href="dummy" {...props}>
+      {children}
+    </a>
+  </NextLink>
+)
 
 export default Link

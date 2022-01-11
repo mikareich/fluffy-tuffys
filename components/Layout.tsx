@@ -1,27 +1,23 @@
 import Head from 'next/head'
-import React, { PropsWithChildren } from 'react'
+import React from 'react'
 
 interface LayoutProps {
   title: string
   metaDescription?: string
 }
 
-function Layout({
+const Layout: React.FC<LayoutProps> = ({
   title,
   metaDescription,
   children,
-}: PropsWithChildren<LayoutProps>) {
-  return (
-    <>
-      <Head>
-        <title>{title}</title>
-        {metaDescription && (
-          <meta name="description" content={metaDescription} />
-        )}
-      </Head>
-      {children}
-    </>
-  )
-}
+}) => (
+  <>
+    <Head>
+      <title>{title}</title>
+      {metaDescription && <meta name="description" content={metaDescription} />}
+    </Head>
+    {children}
+  </>
+)
 
 export default Layout

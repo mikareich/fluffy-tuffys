@@ -1,7 +1,6 @@
 import React from 'react'
+import Layout from '../components/Layout'
 
-function Index() {
-  return <div />
-}
+const Index: React.FC = () => <Layout title="Fluffy Tuffys" />
 
 export default Index

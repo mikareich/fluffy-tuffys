@@ -6,7 +6,7 @@ interface GalleryProps {
 }
 
 const Gallery: React.FC<GalleryProps> = ({ paths }) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(6)
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
   const updateDelay = 5000
 
   useEffect(() => {

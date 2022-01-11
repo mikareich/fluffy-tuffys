@@ -15,9 +15,9 @@ const MenuItem: React.FC<MenuItemProps> = ({
 }) => (
   <Link
     href={href}
-    className={`transition-all ${isLogo ? 'mr-auto' : 'text-gray-500'} ${
-      isActive && !isLogo ? 'text-blue-500' : 'hover:text-black'
-    }`}
+    className={`transition-all flex items-center ${
+      isLogo ? 'mr-auto' : 'text-gray-500'
+    } ${isActive && !isLogo ? 'text-blue-500' : 'hover:text-black'}`}
   >
     {children}
   </Link>

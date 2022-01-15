@@ -28,10 +28,9 @@ const Gallery: React.FC<GalleryProps> = ({ paths }) => {
           src={path}
           layout="fill"
           alt="Yoyo"
-          className={`transition delay-200 ${
-            index === currentImageIndex ? 'z-0' : '-z-10'
+          className={`transition-all delay-200 ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
           }`}
-          loading="lazy"
           objectFit="cover"
           draggable={false}
         />

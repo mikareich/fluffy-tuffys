@@ -3,7 +3,6 @@ import '../styles/index.css'
 import React from 'react'
 import type { AppProps } from 'next/app'
 import AppBar from '../components/AppBar'
-import Logo from '../components/AppBar/Logo'
 import Gallery from '../components/Gallery'
 
 const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
@@ -24,10 +23,10 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   ]
 
   return (
-    <div className="w-screen h-screen bg-gray-50">
+    <div className="w-screen h-min-screen bg-gray-50">
       {/* NavBar */}
       <AppBar.Container type="navbar">
-        <Logo />
+        <AppBar.Logo />
         <AppBar.MenuItem href="/">Spieler</AppBar.MenuItem>
         <AppBar.MenuItem href="/">Tasks</AppBar.MenuItem>
         <AppBar.MenuItem href="/">Waypoints</AppBar.MenuItem>

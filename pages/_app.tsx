@@ -25,7 +25,7 @@ const MyApp: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <div className="w-screen h-min-screen bg-gray-50">
       {/* NavBar */}
-      <AppBar.Container type="navbar">
+      <AppBar.Container type="navbar" fixed border>
         <AppBar.Logo />
         <AppBar.MenuItem href="/">Spieler</AppBar.MenuItem>
         <AppBar.MenuItem href="/">Tasks</AppBar.MenuItem>

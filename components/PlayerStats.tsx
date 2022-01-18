@@ -1,40 +1,42 @@
 import React from 'react'
+import { Player } from '../utils/players'
+import Avatar from './Avatar'
 import Link from './Link'
 
 interface PlayerStatsProps {
-  // players: { name: string; position: { x: number; y: number; z: number } }[]
+  players: Player[]
 }
 
-const PlayerStats: React.FC<PlayerStatsProps> = () => {
-  const players = [
-    { name: 'CopiedByKakashi', position: { x: 627, y: 23, z: 85 } },
-    { name: 'CopiedByNinja', position: { x: 843, y: 81, z: 29 } },
-    { name: 'omupHD', position: { x: 21, y: 73, z: 475 } },
-    { name: 'juliayuli', position: { x: 789, y: 78, z: 365 } },
-  ]
-  return (
-    <div className="border rounded-lg h-min p-4 max-w-xs sticky top-32">
-      <div className="prose mb-4">
-        <h2 className="text-xl">Spieler Online</h2>
-        <p className="text-gray-500">
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-        </p>
-      </div>
-      <ul>
-        {players.map((player) => (
-          <li key={player.name} className="mb-2">
-            <Link href="/">
+const PlayerStats: React.FC<PlayerStatsProps> = ({ players }) => (
+  <div className="border rounded-lg h-min p-4 max-w-xs sticky top-32 w-64">
+    <div className="prose mb-4">
+      <h2 className="text-xl">Spieler Online</h2>
+      <p className="text-gray-500">
+        Alle Spieler, die gerade auf dem Server spielen.
+      </p>
+    </div>
+    <ul>
+      {players.map((player) => (
+        <li key={player.uuid} className="mb-2 hover:bg-gray-200 rounded p-2">
+          <Link href={`/players/${player.name}`} className="flex">
+            <div className="grid place-items-center">
+              <Avatar
+                src={`https://crafatar.com/avatars/${player.uuid}`}
+                size={32}
+              />
+            </div>
+            <div className="ml-2">
               <span className="font-medium">{player.name}</span>
               <br />
               <span className="text-gray-500">
-                {player.position.x} {player.position.y} {player.position.z}
+                {player.position.x}, {player.position.y}, {player.position.z}
               </span>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </div>
-  )
-}
+            </div>
+          </Link>
+        </li>
+      ))}
+    </ul>
+  </div>
+)
 
 export default PlayerStats

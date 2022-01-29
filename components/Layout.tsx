@@ -6,18 +6,22 @@ interface LayoutProps {
   metaDescription?: string
 }
 
-const Layout: React.FC<LayoutProps> = ({
+function Layout({
   title,
   metaDescription,
   children,
-}) => (
-  <>
-    <Head>
-      <title>{title}</title>
-      {metaDescription && <meta name="description" content={metaDescription} />}
-    </Head>
-    {children}
-  </>
-)
+}: React.PropsWithChildren<LayoutProps>) {
+  return (
+    <>
+      <Head>
+        <title>{title}</title>
+        {metaDescription && (
+          <meta name="description" content={metaDescription} />
+        )}
+      </Head>
+      {children}
+    </>
+  )
+}
 
 export default Layout

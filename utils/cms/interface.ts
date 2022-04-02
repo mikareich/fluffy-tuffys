@@ -9,6 +9,6 @@ export interface IPage extends IMetadata {
 }
 
 export interface ILandingPage extends IPage {
-  slug: '/'
+  slug: 'index'
   content: null
 }

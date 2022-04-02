@@ -1,23 +1,19 @@
 import { GetStaticPropsContext } from 'next';
-import React, { useEffect } from 'react';
-import { useRecoilState } from 'recoil';
+import React from 'react';
 
-import { TextXL } from '../components/Typography';
-import { Page as PageProps } from '../utils/cms/interface';
-import { currentPageState } from '../utils/recoil';
+import Layout from '../components/Layout';
+import { IPage } from '../utils/cms/interface';
 
-function Page({ page }: { page: PageProps }) {
-  const [, setCurrentPage] = useRecoilState(currentPageState)
-
-  useEffect(() => {
-    setCurrentPage(page)
-  })
-
-  return <TextXL>{page.content}</TextXL>
+function Page({ title, metaDescription, content }: IPage) {
+  return (
+    <Layout title={title} metaDescription={metaDescription}>
+      {content}
+    </Layout>
+  )
 }
 
 export async function getStaticPaths() {
-  const { default: pages } = await import('../utils/cms/pages.json')
+  const { default: pages } = await import('../utils/cms/pages')
   const paths = pages.map(({ slug }) => ({ params: { slug } }))
 
   return {
@@ -27,13 +23,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  const { default: pages } = await import('../utils/cms/pages.json')
-  const page = pages.find(({ slug }) => slug === params!.slug)
+  const { default: pages } = await import('../utils/cms/pages')
+  const page = pages.find(({ slug }) => slug === params!.slug) as IPage
 
   return {
-    props: {
-      page,
-    },
+    props: page,
   }
 }
 

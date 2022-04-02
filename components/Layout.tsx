@@ -1,25 +1,24 @@
 import Head from 'next/head';
 import React from 'react';
 
-interface LayoutProps {
-  title?: string
-  description?: string
-}
+import { IMetadata } from '../utils/cms/interface';
 
-function Layout({
+function BaseLayout({
   title,
-  description,
+  metaDescription,
   children,
-}: React.PropsWithChildren<LayoutProps>) {
+}: React.PropsWithChildren<IMetadata>) {
   return (
     <>
       <Head>
-        <title>Fluffy Tuffys {title && `| ${title}`}</title>
-        {description && <meta name="description" content={description} />}
+        <title>{title}</title>
+        {metaDescription && (
+          <meta name="description" content={metaDescription} />
+        )}
       </Head>
       {children}
     </>
   )
 }
 
-export default Layout
+export default BaseLayout

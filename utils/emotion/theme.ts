@@ -1,21 +1,8 @@
-import colors, { gray, purple, white } from './colors'
-import { bodyFont, headingFont, typeScale } from './fonts'
+import colors, { gray, purple, white } from './colors';
+import { bodyFont, headingFont, typeScale } from './fonts';
+import { Theme } from './interface';
 
-export interface Theme {
-  colors: typeof colors
-  fonts: {
-    headingFont: typeof headingFont
-    bodyFont: typeof bodyFont
-  }
-  typeScale: typeof typeScale
-  primaryColor: string
-  secondaryColor: string
-  tertiaryColor: string
-  backgroundColor: string
-  textColor: string
-  secondaryTextColor: string
-}
-
+// eslint-disable-next-line import/prefer-default-export
 export const defaultTheme: Theme = {
   colors,
   fonts: {

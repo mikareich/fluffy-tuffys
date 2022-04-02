@@ -1,5 +1,5 @@
 import { css } from '@emotion/react'
-import { Theme } from './theme'
+import { Theme } from './interface'
 
 export const globalStyles = (theme: Theme) => css`
   html {

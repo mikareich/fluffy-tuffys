@@ -1,23 +1,21 @@
-import Head from 'next/head'
-import React from 'react'
+import Head from 'next/head';
+import React from 'react';
 
 interface LayoutProps {
-  title: string
-  metaDescription?: string
+  title?: string
+  description?: string
 }
 
 function Layout({
   title,
-  metaDescription,
+  description,
   children,
 }: React.PropsWithChildren<LayoutProps>) {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        {metaDescription && (
-          <meta name="description" content={metaDescription} />
-        )}
+        <title>Fluffy Tuffys {title && `| ${title}`}</title>
+        {description && <meta name="description" content={description} />}
       </Head>
       {children}
     </>

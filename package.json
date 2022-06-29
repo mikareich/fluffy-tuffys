@@ -8,16 +8,18 @@
     "start": "next start",
     "format": "prettier --write \"**/*.{js,ts,tsx}\"",
     "type-check": "tsc --pretty --noEmit",
-    "lint": "eslint . --ext ts --ext tsx --ext js"
+    "lint": "eslint . --ext ts --ext tsx --ext js",
+    "pre-commit": "lint-staged",
+    "prepare": "husky install"
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged",
+      "pre-commit": "npm run pre-commit",
       "pre-push": "npm run type-check"
     }
   },
   "lint-staged": {
-    "**/*.{ts,tsx}": [
+    "**/*.{js,ts,tsx}": [
       "npm run lint",
       "npm run format"
     ]

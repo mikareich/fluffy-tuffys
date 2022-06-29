@@ -7,7 +7,6 @@ interface TitleLayoutProps {
 }
 
 function TitleLayout({ title, subtitle, footer }: TitleLayoutProps) {
-  console.log('test')
   const x = 12
   return (
     <div>
